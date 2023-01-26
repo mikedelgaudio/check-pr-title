@@ -1,5 +1,5 @@
 import * as core from "@actions/core";
-const { getOctokit, context } = require("@actions/github");
+const { context } = require("@actions/github");
 
 function isValidRegexPattern(regex) {
   if (!isValidString(regex)) return false;
@@ -19,10 +19,6 @@ function isValidString(string) {
 
 async function run() {
   try {
-    // Acquire GitHub Token
-    // const token = core.getInput("GITHUB_TOKEN", { required: true });
-    // const octokit = getOctokit(token);
-
     // Acquire booleans from user's YAML workflow config
     const checkPrTitle = core.getBooleanInput("checkPrTitle", {
       required: true,
@@ -54,12 +50,9 @@ async function run() {
       return;
     }
 
+    // Remove first and last / for regex pattern
     const strippedPattern = regexPattern.slice(1, -1);
     const REGEX = new RegExp(strippedPattern, "g");
-
-    core.debug(regexPattern);
-    core.debug(strippedPattern);
-    core.debug(REGEX);
 
     // Ensure the PR Title meets regex pattern
     if (!REGEX.test(PR_TITLE)) {

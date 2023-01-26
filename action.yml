@@ -5,8 +5,6 @@ branding:
   icon: "git-pull-request"
   color: "gray-dark"
 inputs:
-  GITHUB_TOKEN:
-    description: "REQUIRED GitHub Token"
   checkPrTitle:
     description: "Boolean value 'true' or 'false' to check PR for image"
   regexPattern:

@@ -9817,7 +9817,7 @@ __nccwpck_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0__ = __nccwpck_require__(2186);
 /* harmony import */ var _actions_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__nccwpck_require__.n(_actions_core__WEBPACK_IMPORTED_MODULE_0__);
 
-const { getOctokit, context } = __nccwpck_require__(5438);
+const { context } = __nccwpck_require__(5438);
 
 function isValidRegexPattern(regex) {
   if (!isValidString(regex)) return false;
@@ -9837,10 +9837,6 @@ function isValidString(string) {
 
 async function run() {
   try {
-    // Acquire GitHub Token
-    // const token = core.getInput("GITHUB_TOKEN", { required: true });
-    // const octokit = getOctokit(token);
-
     // Acquire booleans from user's YAML workflow config
     const checkPrTitle = _actions_core__WEBPACK_IMPORTED_MODULE_0__.getBooleanInput("checkPrTitle", {
       required: true,
@@ -9872,12 +9868,9 @@ async function run() {
       return;
     }
 
+    // Remove first and last / for regex pattern
     const strippedPattern = regexPattern.slice(1, -1);
     const REGEX = new RegExp(strippedPattern, "g");
-
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(regexPattern);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(strippedPattern);
-    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(REGEX);
 
     // Ensure the PR Title meets regex pattern
     if (!REGEX.test(PR_TITLE)) {

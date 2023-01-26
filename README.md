@@ -20,7 +20,6 @@ jobs:
       - name: Check PR Title
         uses: mikedelgaudio/check-pr-title@main
         with:
-          GITHUB_TOKEN: ${{github.token}} #REQUIRED
           checkPrTitle: true #REQUIRED DEFAULT
           regexPattern: "/^(HRO-.{3,})|(HROIMP-.{3,})$/" # REQUIRED must start and end with /
 ```
