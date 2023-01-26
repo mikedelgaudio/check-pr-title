@@ -9872,7 +9872,12 @@ async function run() {
       return;
     }
 
-    const REGEX = new RegExp(regexPattern, "g");
+    const strippedPattern = regexPattern.slice(1, -1);
+    const REGEX = new RegExp(strippedPattern, "g");
+
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(regexPattern);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(strippedPattern);
+    _actions_core__WEBPACK_IMPORTED_MODULE_0__.debug(REGEX);
 
     // Ensure the PR Title meets regex pattern
     if (!REGEX.test(PR_TITLE)) {

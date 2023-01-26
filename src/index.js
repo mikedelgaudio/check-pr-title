@@ -54,7 +54,12 @@ async function run() {
       return;
     }
 
-    const REGEX = new RegExp(regexPattern, "g");
+    const strippedPattern = regexPattern.slice(1, -1);
+    const REGEX = new RegExp(strippedPattern, "g");
+
+    core.debug(regexPattern);
+    core.debug(strippedPattern);
+    core.debug(REGEX);
 
     // Ensure the PR Title meets regex pattern
     if (!REGEX.test(PR_TITLE)) {
