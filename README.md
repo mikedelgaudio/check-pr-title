@@ -10,7 +10,7 @@ This action checks if the title of a PR matches the configured regex.
 ```yaml
 name: "Check-PR-Title"
 on:
-  pull-request:
+  pull_request:
     types: [opened, edited, ready_for_review]
 
 jobs:
