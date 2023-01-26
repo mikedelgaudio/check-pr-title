@@ -1,0 +1,26 @@
+{
+  "name": "check-pr-title",
+  "version": "1.0.0",
+  "description": "GitHub Action that checks if a PR title meets regex pattern",
+  "main": "index.js",
+  "scripts": {
+    "build": "ncc build src/index.js --license licenses.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikedelgaudio/check-pr-title.git"
+  },
+  "author": "Mike DelGaudio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikedelgaudio/check-check-pr-title/issues"
+  },
+  "homepage": "https://github.com/mikedelgaudio/check-pr-title#readme",
+  "dependencies": {
+    "@actions/github": "^5.1.1"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.10.0",
+    "@vercel/ncc": "^0.36.0"
+  }
+}

@@ -1,0 +1,17 @@
+name: "Check-PR-Title"
+description: "Checks that a PR title meets the provided regex pattern"
+author: "Mike DelGaudio"
+branding:
+  icon: "git-pull-request"
+  color: "gray-dark"
+inputs:
+  GITHUB_TOKEN:
+    description: "REQUIRED GitHub Token"
+  checkPrTitle:
+    description: "Boolean value 'true' or 'false' to check PR for image"
+  regexPattern:
+    description: "String regex pattern must begin with / and end in /"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
